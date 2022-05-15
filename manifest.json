@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "巴哈動畫瘋奶油刀",
+    "version": "0.1.0",
+    "author": "hms5232",
+
+    "description": "A screenshot tool for ani.gamer.com.tw",
+    "homepage_url": "https://github.com/hms5232/baha-ani-butter-knife",
+
+    "icons": {
+        "48": "icons/logo-48.png",
+        "96": "icons/logo-96.png"
+    },
+
+    "browser_action": {
+        "default_icon": "icons/66.png",
+        "default_title": "Butter knife"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://ani.gamer.com.tw/*"],
+            "js": ["index.js"]
+        }
+    ]
+}

@@ -12,6 +12,10 @@
         "96": "icons/logo-96.png"
     },
 
+    "permissions": [
+        "activeTab"
+    ],
+
     "browser_action": {
         "default_icon": "icons/66.png",
         "default_title": "Butter knife"
@@ -20,7 +24,7 @@
     "content_scripts": [
         {
             "matches": ["*://ani.gamer.com.tw/*"],
-            "js": ["index.js"]
+            "js": ["content.js"]
         }
     ]
 }

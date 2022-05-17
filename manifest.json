@@ -17,7 +17,7 @@
     ],
 
     "browser_action": {
-        "default_icon": "icons/66.png",
+        "default_icon": "icons/logo-96.png",
         "default_title": "Butter knife"
     },
 

@@ -6,6 +6,8 @@
 
 ## 特別感謝
 * <a target="_blank" href="https://icons8.com/icon/IfXJmG4pVtC9/butter">Butter</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+* https://materialdesignicons.com/
+* https://stackoverflow.com/a/61511955
 
 ## 聲明
 本人撰寫附加元件僅供學術研究及程式碼練習，使用請遵守《著作權法》及[〈巴哈姆特動畫瘋服務條款〉](https://ani.gamer.com.tw/animeRule.php)等相關規範。

@@ -47,30 +47,6 @@
         return isNaN(episodeName) ? episodeName : String(episodeName).padStart(2, '0');
     }
 
-    /**
-     * Wait for element appear.
-     * https://stackoverflow.com/a/61511955
-     */
-    function waitForElm(selector) {
-        return new Promise(resolve => {
-            if (document.querySelector(selector)) {
-                return resolve(document.querySelector(selector));
-            }
-
-            const observer = new MutationObserver(mutations => {
-                if (document.querySelector(selector)) {
-                    resolve(document.querySelector(selector));
-                    observer.disconnect();
-                }
-            });
-
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-        });
-    }
-
     // 等解析度按鈕出現，代表開始播放正片
     waitForElm('#resButton').then((elm) => {
         console.log('[奶油刀] resButton is ready');

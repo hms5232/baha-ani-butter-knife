@@ -5,17 +5,17 @@
      * @return void
      */
     function init() {
-        console.log('[奶油刀] init')
+        console.log('[奶油刀] init');
 
         const animeTitle = document.getElementsByTagName("h1")[0].textContent;  // 網頁上原始動畫標題
         const filenamePrefix = animeTitle.replace(/ \[[^}]*\]/,'') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
-        console.log("[奶油刀] 存檔名稱（未加時間戳）為：" + filenamePrefix)
+        console.log("[奶油刀] 存檔名稱（未加時間戳）為：" + filenamePrefix);
 
         // 鍵盤快捷鍵
         document.addEventListener('keydown', (event) => {
             // 119 => F8
             if (event.keyCode !== 119) return;
-            // TODO: 截圖
+            getVideoShot(filenamePrefix);
         });
 
         // 插入按鈕
@@ -30,9 +30,11 @@
             document.getElementById("butter-knife-btn").innerHTML = `<svg style="width:20px;height:20px" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M13.73,15L9.83,21.76C10.53,21.91 11.25,22 12,22C14.4,22 16.6,21.15 18.32,19.75L14.66,13.4M2.46,15C3.38,17.92 5.61,20.26 8.45,21.34L12.12,15M8.54,12L4.64,5.25C3,7 2,9.39 2,12C2,12.68 2.07,13.35 2.2,14H9.69M21.8,10H14.31L14.6,10.5L19.36,18.75C21,16.97 22,14.6 22,12C22,11.31 21.93,10.64 21.8,10M21.54,9C20.62,6.07 18.39,3.74 15.55,2.66L11.88,9M9.4,10.5L14.17,2.24C13.47,2.09 12.75,2 12,2C9.6,2 7.4,2.84 5.68,4.25L9.34,10.6L9.4,10.5Z" />
                 </svg>`;
-            // TODO: 註冊按鈕事件以截圖
+            document.getElementById("butter-knife-btn").addEventListener('click', (event) => {
+                getVideoShot(filenamePrefix);
+            });
         } catch (error) {
-            console.warn("[奶油刀] 無法注入控制器圖示");
+            console.warn("[奶油刀] 無法注入控制器圖示" + '\n' + error);
         }
     }
 
@@ -45,6 +47,20 @@
     function getEpisode(title) {
         const episodeName = title.match(/ \[(.+?)\]/g).at('-1').replace(' [', '').replace(']', '');  // 真正的話數或集數
         return isNaN(episodeName) ? episodeName : String(episodeName).padStart(2, '0');
+    }
+
+    /**
+     * 取得影片截圖
+     *
+     * @param string filenamePrefix 檔名前綴
+     * @return void
+     */
+    function getVideoShot(filenamePrefix) {
+        const video = document.querySelector('#ani_video_html5_api');
+        const origin_ct = document.getElementsByClassName('vjs-current-time-display')[0].textContent;  // 播放器上的時間
+        const ct = origin_ct.replace(':', '').padStart(4, '0');
+        let filename = filenamePrefix + ct;
+        console.log("[奶油刀] 截圖：" + filename);
     }
 
     // 等解析度按鈕出現，代表開始播放正片

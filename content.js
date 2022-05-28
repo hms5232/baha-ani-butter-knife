@@ -61,6 +61,26 @@
         const ct = origin_ct.replace(':', '').padStart(4, '0');
         let filename = filenamePrefix + ct;
         console.log("[奶油刀] 截圖：" + filename);
+
+        // 繪製
+        let canva = document.createElement("canvas");
+        canva.setAttribute("id", "butter-knife-shot-" + Date.now());  // 取當下時間戳作唯一值
+        canva.setAttribute("class", "butter-knife-shot");
+        canva.setAttribute("width", video.videoWidth);
+        canva.setAttribute("height", video.videoHeight);
+        let shot = canva.getContext('2d');
+        shot.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+
+        // 套上連結，點擊即可下載
+        let canvaDL = document.createElement("a");
+        canvaDL.id = "butter-knife-shot";
+        canvaDL.download = filename;
+        canvaDL.title = filename;
+        canvaDL.href = canva.toDataURL();
+        canvaDL.innerHTML = `<img src="${canva.toDataURL()}">`;
+
+        // 先暫放在「作品簡介」區
+        document.getElementsByClassName('data_intro')[0].appendChild(canvaDL);
     }
 
     // 等解析度按鈕出現，代表開始播放正片

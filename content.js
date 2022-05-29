@@ -11,6 +11,13 @@
         const filenamePrefix = animeTitle.replace(/ \[[^}]*\]/,'') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
         console.log("[奶油刀] 存檔名稱（未加時間戳）為：" + filenamePrefix);
 
+        // 製作相簿區
+        let album = document.createElement('div');
+        album.setAttribute('id', 'butter-knife-album');
+        album.setAttribute('class', 'butter-knife');
+        album.setAttribute('style', 'margin-bottom:10px');
+        document.getElementsByClassName('data_acgbox')[0].insertAdjacentElement('beforebegin', album);  // 插在「作品簡介」區前
+
         // 鍵盤快捷鍵
         document.addEventListener('keydown', (event) => {
             // 119 => F8
@@ -79,8 +86,8 @@
         canvaDL.href = canva.toDataURL();
         canvaDL.innerHTML = `<img src="${canva.toDataURL()}">`;
 
-        // 先暫放在「作品簡介」區
-        document.getElementsByClassName('data_intro')[0].appendChild(canvaDL);
+        // 放到相簿
+        document.getElementById("butter-knife-album").appendChild(canvaDL);
     }
 
     // 等解析度按鈕出現，代表開始播放正片

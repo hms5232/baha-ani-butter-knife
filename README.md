@@ -2,7 +2,13 @@
 
 <p align="center"><img src="asset/icons8-butter-66.png" alt="logo" /></p>
 
+![badge of version on amo](https://img.shields.io/amo/v/baha-ani-butter-knife?color=5bbfc9&style=flat-square)
+[![](https://img.shields.io/github/v/release/hms5232/baha-ani-butter-knife?color=ec9f3e&include_prereleases&sort=semver&style=flat-square)](https://github.com/hms5232/baha-ani-butter-knife/releases)
+![](https://img.shields.io/github/license/hms5232/baha-ani-butter-knife?color=e77d95&style=flat-square)
+
 [巴哈動畫瘋](https://ani.gamer.com.tw/)截圖附加元件
+
+[![get-the-addon-172x60.png](https://ffp4g1ylyit3jdyti1hqcvtb-wpengine.netdna-ssl.com/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/zh-TW/firefox/addon/baha-ani-butter-knife/)
 
 ## 最低需求
 * Firefox 90 或更新的版本

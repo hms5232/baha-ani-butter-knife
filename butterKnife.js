@@ -97,5 +97,5 @@
         init();
     });
 
-    console.log('[奶油刀] content.js loaded.');
+    console.log('[奶油刀] butterKnife loaded.');
 })();

@@ -34,7 +34,36 @@
             newBtn.setAttribute('type', 'button');
             newBtn.setAttribute('class', 'butter-knife vjs-control vjs-show-tip');
             resolutionBtn.insertAdjacentElement("afterend", newBtn);
-            document.getElementById("butter-knife-btn").innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ri" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M4.342 1.408L22.373 19.44a1.5 1.5 0 0 1-2.121 2.122l-4.596-4.597L12.12 20.5L8 16.38V19a1 1 0 0 1-2 0v-4a1 1 0 0 0-1.993-.117L4 15v1a1 1 0 0 1-2 0V7.214a7.976 7.976 0 0 1 2.168-5.627l.174-.179zm.241 3.07l-.051.11a5.993 5.993 0 0 0-.522 2.103L4 7l-.001.12a5.984 5.984 0 0 0 1.58 4.003l.177.185l6.363 6.363l2.829-2.828L4.583 4.478z"></path></svg>`;
+            document.getElementById("butter-knife-btn").innerHTML = `
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">  <image id="image0" width="24" height="24" x="0" y="0"
+                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACx1BMVEUAAAAAAAAFBwoGBwwA
+                AAAAAAAFBgkiLkgoOFgFBwooNlUDBAYMEBgFBQkFBgomNFENERoEBggJDQ8WHzAEBAYJDQ5QcX0M
+                EBkEBggJDQ9Ye4gbJiwEBgcIDA0AAAAeKi4AAAAAAAAWEw8UEQ1XTTvTuowfIBxafIkFBQUQDwkU
+                EQwVEgwHBQUAAAADAwMZFhE9NCQRDgoREAwIBwUJCAZKQzMPDgsPDgoNDAkCAgEJCAUTEQsICAYg
+                HhoAAAAJCAYYFhMAAAATEQwODQsAAAARDwuSg2EWFRIDAwMAAAAQDgoXFA8WFA8YFRAjHxUoJRov
+                KyEuKyIqJh8kIhsWFRMXFRMSEA8AAABKZqBCW49FX5VFYJYcJy0oN1Ok5/+Y1+2W0+mc5f+Q4v+M
+                4f+Q4f+W4/9zw+A/WF4sMS4nLSoiLCyyoHfdxpTmz5otLSVcfYie5f91xuMZGxiXiGXWwJCikW0T
+                EQ2xmmbavn/HrXPMt4n/5avt1Z8uLSVcfomR4v9DYmmQgmGhkWxSSTT72pH825LmyIX+5Kru1qBb
+                fYiN4f8wOjnNuIn54Kfv16AwMChYeIMuNjTTvY3/5qz/8c/74ag1NCt8xuAYHBr/5a3FsYQxPD2h
+                4vpego4UGBcUEg3cxpQdISCW1OpfhZIcIB9VTjjixYM8NSfRvIy5pnz/8M6rootLRz3EuZ+WiGgZ
+                GhghIh5vZ1DTvYv/36v/vKymd299aFTy2aLRxKbg1Lbj17g0MCqdeHNTPTz/3seyn3XUuXv/oaz8
+                pKr33qYZFhFNRTQhHxo3NC2qoYr+wbn+oKv/p69qX0ajjl7/z6v/oqz/uazPuouaimezpoWon4j+
+                8M7/1sP/o63/u7f/4Kv/26v/6bf/6cz/5Mr946r/5q69qn//7cTXy6+7qH1NRTN4aEW5oWssJx2b
+                i2i7qoS7sZick3////9lojWYAAAAWHRSTlMAEJisJBLa+f7c+fLybdb58n/b/HjZ+fN52vn8r/IN
+                7S09u92YaO/8/eLd0GcBSvLzlNz19/79/fv+9If37x728RXT6jfx/vFPJZTIzc7Z3uXk4NrNypsy
+                J8ZaAQAAAAFiS0dE7CG5sxsAAAAJcEhZcwAAAOwAAADsAXkocb0AAAAHdElNRQfmCA0HIzRUgVRy
+                AAABm0lEQVQ4y2NgGBDAyMTMgk+elY2dgxOvPFdEJDd++SgeXtz28/FHRAsI4tYvJAzUL4JbXlQs
+                JlZcAre8pFRcvLQMXvm4uARZOdzyiUnJKYnyCqjiikrKIKCiqqaempaekZmloakFA9o6ugx6+tk5
+                IJCbl19QWFRcUlpWXgEHlQaGDEZV1SBQU1sXV9/QCGQ1Nbe0wkGbMYNJO0i+o7YzLq6ruwfI7DU1
+                M7eAAksrawYbkHxf/wSg+7smTgKbVj15ChTY2jGAFUydBtQfFzd9BlTBTHQFs2YDpefMnTcflwkL
+                Fi5KWLxk6bLlQAUrVgIFVk2ZsnrNWoSC6nXrN2zc1Nq6fNLmLVu3tc/avmPnrt179u5DKACB/QeA
+                CrYcPHjo8JGjx46fOHnw1GlUBWfOAhWcO3/wQvXFS5evXL12/eANLAqqb94CsW8DHXjnLsQN9vdQ
+                FEDA/VUQXzg4MjA4PcCioPohWP6RMzAyXVzdHoPBk6fPnr94DAUvXwHBa3cPUHR7enn7gICvn59/
+                QGBQMASEhISEhoUz0AUAAEkxBGvYaumpAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA4LTEzVDA3
+                OjM1OjUyKzAwOjAwWMR5FgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wOC0xM1QwNzozNTo1Misw
+                MDowMCmZwaoAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC" />
+                </svg>`;
             document.getElementById("butter-knife-btn").addEventListener('click', (event) => {
                 getVideoShot(filenamePrefix);
             });

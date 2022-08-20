@@ -40,6 +40,7 @@
 * https://icones.js.org/
 * [Icon made by Freepik from www.flaticon.com](https://www.flaticon.com/free-icon/butter_5906743)
 * https://cdkm.com/tw/png-to-svg
+* https://nira-app.com/
 
 ## 聲明
 本人撰寫附加元件僅供學術研究及程式碼練習，使用請遵守《著作權法》及[〈巴哈姆特動畫瘋服務條款〉](https://ani.gamer.com.tw/animeRule.php)等相關規範。

@@ -5,11 +5,11 @@
      * @return void
      */
     function init() {
-        console.log('[奶油刀] init');
+        consolog('init');
 
         const animeTitle = document.getElementsByTagName("h1")[0].textContent;  // 網頁上原始動畫標題
         const filenamePrefix = animeTitle.replace(/ \[[^}]*\]/,'') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
-        console.log("[奶油刀] 存檔名稱（未加時間戳）為：" + filenamePrefix);
+        consolog("存檔名稱（未加時間戳）為：" + filenamePrefix);
 
         // 製作相簿區
         let album = document.createElement('div');
@@ -72,7 +72,7 @@
                 getVideoShot(filenamePrefix);
             });
         } catch (error) {
-            console.warn("[奶油刀] 無法注入控制器圖示" + '\n' + error);
+            consolog("無法注入控制器圖示" + '\n' + error, 'warn');
         }
     }
 
@@ -98,7 +98,7 @@
         const origin_ct = document.getElementsByClassName('vjs-current-time-display')[0].textContent;  // 播放器上的時間
         const ct = origin_ct.replace(':', '').padStart(4, '0');
         let filename = filenamePrefix + ct;
-        console.log("[奶油刀] 截圖：" + filename);
+        consolog('截圖：' + filename);
 
         // 繪製
         let canva = document.createElement("canvas");
@@ -121,12 +121,23 @@
         document.getElementById("butter-knife-album").appendChild(canvaDL);
     }
 
+    /**
+     * 奶油刀 console log
+     *
+     * @param string content 紀錄內容
+     * @param string level 紀錄等級
+     * @return void
+     */
+    function consolog(content, level = 'log') {
+        console[level]("[奶油刀] " + content);
+    }
+
     // 等解析度按鈕出現，代表開始播放正片
     waitForElm('#resButton').then((elm) => {
-        console.log('[奶油刀] resButton is ready');
+        consolog('resButton is ready');
         // 此時開始初始化
         init();
     });
 
-    console.log('[奶油刀] butterKnife loaded.');
+    consolog('butterKnife loaded.')
 })();

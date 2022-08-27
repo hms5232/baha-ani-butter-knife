@@ -95,8 +95,12 @@
      */
     function getVideoShot(filenamePrefix) {
         const video = document.querySelector('#ani_video_html5_api');
-        const origin_ct = document.getElementsByClassName('vjs-current-time-display')[0].textContent;  // 播放器上的時間
-        const ct = origin_ct.replace(':', '').padStart(4, '0');
+        const origin_dt = document.getElementsByClassName('vjs-duration-display')[0].textContent;  // 播放器上的影片總時長
+        const origin_ct = document.getElementsByClassName('vjs-current-time-display')[0].textContent;  // 播放器上目前播放進度時間
+        // 用冒號數量判斷是不是超過一個小時
+        const ct = origin_dt.match(/:/g).length === 1
+            ? origin_ct.replace(':', '').padStart(4, '0')
+            : origin_ct.replaceAll(':', '').padStart(6, '0');
         let filename = filenamePrefix + ct;
         consolog('截圖：' + filename);
 

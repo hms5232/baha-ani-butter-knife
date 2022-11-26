@@ -1,4 +1,8 @@
 (() => {
+
+    const animeTitle = document.getElementsByTagName("h1")[0].textContent;  // 網頁上原始動畫標題
+    let filenamePrefix = animeTitle.replace(/ \[[^}]*\]/,'') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
+
     /**
      * 初始化：加入按鈕和快捷鍵
      *
@@ -7,9 +11,7 @@
     function init() {
         consolog('init');
 
-        const animeTitle = document.getElementsByTagName("h1")[0].textContent;  // 網頁上原始動畫標題
-        const filenamePrefix = animeTitle.replace(/ \[[^}]*\]/,'') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
-        consolog("存檔名稱（未加時間戳）為：" + filenamePrefix);
+        consolog("預設存檔名稱（未加時間戳）為：" + filenamePrefix);
 
         // 製作相簿區
         let album = document.createElement('div');
@@ -22,7 +24,7 @@
         document.addEventListener('keydown', (event) => {
             // 119 => F8
             if (event.keyCode !== 119) return;
-            getVideoShot(filenamePrefix);
+            getVideoShot();
         });
 
         // 插入按鈕
@@ -69,7 +71,7 @@
                 </g>
                 </svg>`;
             document.getElementById("butter-knife-btn").addEventListener('click', (event) => {
-                getVideoShot(filenamePrefix);
+                getVideoShot();
             });
         } catch (error) {
             consolog("無法注入控制器圖示" + '\n' + error, 'warn');
@@ -93,7 +95,7 @@
      * @param string filenamePrefix 檔名前綴
      * @return void
      */
-    function getVideoShot(filenamePrefix) {
+    function getVideoShot() {
         const video = document.querySelector('#ani_video_html5_api');
         const origin_dt = document.getElementsByClassName('vjs-duration-display')[0].textContent;  // 播放器上的影片總時長
         const origin_ct = document.getElementsByClassName('vjs-current-time-display')[0].textContent;  // 播放器上目前播放進度時間

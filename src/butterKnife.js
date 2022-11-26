@@ -20,6 +20,26 @@
         album.setAttribute('style', 'margin-bottom:10px');
         document.getElementsByClassName('data_acgbox')[0].insertAdjacentElement('beforebegin', album);  // 插在「作品簡介」區前
 
+        // 自訂存檔名稱前綴 - 輸入
+        let filenamePrefixInput = document.createElement('input');
+        filenamePrefixInput.setAttribute("id", "butter-knife-filename-prefix-input");
+        filenamePrefixInput.setAttribute("title", "自訂檔名前綴");
+        filenamePrefixInput.setAttribute('type', 'text');
+        filenamePrefixInput.setAttribute('class', 'butter-knife butter-knife-input');
+        filenamePrefixInput.setAttribute("placeholder", filenamePrefix);
+        filenamePrefixInput.setAttribute("value", filenamePrefix);
+        album.insertAdjacentElement("beforebegin", filenamePrefixInput);
+        // 自訂存檔名稱前綴 - 儲存按鈕
+        let saveFilenamePrefixBtn = document.createElement('button');
+        saveFilenamePrefixBtn.setAttribute("id", "butter-knife-filename-save-filename-prefix-btn");
+        saveFilenamePrefixBtn.setAttribute('type', 'button');
+        saveFilenamePrefixBtn.setAttribute('class', 'butter-knife');
+        saveFilenamePrefixBtn.textContent = '儲存自訂';
+        filenamePrefixInput.insertAdjacentElement("afterend", saveFilenamePrefixBtn);
+        document.getElementById("butter-knife-filename-save-filename-prefix-btn").addEventListener('click', (event) => {
+            setFilenamePrefix();
+        });
+
         // 鍵盤快捷鍵
         document.addEventListener('keydown', (event) => {
             // 119 => F8
@@ -125,6 +145,16 @@
 
         // 放到相簿
         document.getElementById("butter-knife-album").appendChild(canvaDL);
+    }
+
+    /**
+     * 設定截圖存檔檔名前綴
+     *
+     * @return void
+     */
+    function setFilenamePrefix() {
+        filenamePrefix = document.getElementById("butter-knife-filename-prefix-input").value;
+        consolog("存檔名稱（未加時間戳）更新為：" + filenamePrefix);
     }
 
     /**

@@ -20,22 +20,48 @@
         album.setAttribute('style', 'margin-bottom:10px');
         document.getElementsByClassName('data_acgbox')[0].insertAdjacentElement('beforebegin', album);  // 插在「作品簡介」區前
 
+        // 自訂存檔名稱前綴 - 表單 - 在相簿區之前
+        let configForm = document.createElement('form');
+        configForm.setAttribute('id', 'butter-knife-config-form');
+        configForm.setAttribute('class', 'butter-knife input-field');
+        configForm.setAttribute('style', 'margin-bottom:10px');
+        document.getElementById('butter-knife-album').insertAdjacentElement('beforebegin', configForm);
+
+        // 奶油刀 icon 48 - 在自訂存檔名稱前綴表單之前
+        let icon = document.createElement('img');
+        icon.setAttribute('id', 'butter-knife-icon-48');
+        icon.setAttribute('title', '奶油刀圖示');
+        icon.setAttribute('class', 'butter-knife');
+        icon.setAttribute('src', browser.runtime.getURL('icons/logo-48.png'));
+        icon.setAttribute('height', browser.runtime.getURL('icons/logo-48.png'));
+        document.getElementById('butter-knife-config-form').insertAdjacentElement('beforebegin', icon);
+
         // 自訂存檔名稱前綴 - 輸入
+        let filenamePrefixLabel = document.createElement('label');
+        filenamePrefixLabel.setAttribute("for", "butter-knife-filename-prefix-input");
+        filenamePrefixLabel.setAttribute("id", "butter-knife-filename-prefix-input-label");
+        filenamePrefixLabel.setAttribute("class", "butter-knife-filename-prefix-input-label");
+        filenamePrefixLabel.textContent = "自訂奶油刀存檔檔名前綴"
+        configForm.appendChild(filenamePrefixLabel);
         let filenamePrefixInput = document.createElement('input');
         filenamePrefixInput.setAttribute("id", "butter-knife-filename-prefix-input");
-        filenamePrefixInput.setAttribute("title", "自訂檔名前綴");
+        filenamePrefixInput.setAttribute("title", "自訂奶油刀存檔檔名前綴");
         filenamePrefixInput.setAttribute('type', 'text');
         filenamePrefixInput.setAttribute('class', 'butter-knife butter-knife-input');
         filenamePrefixInput.setAttribute("placeholder", filenamePrefix);
         filenamePrefixInput.setAttribute("value", filenamePrefix);
-        album.insertAdjacentElement("beforebegin", filenamePrefixInput);
+        configForm.appendChild(filenamePrefixInput);
         // 自訂存檔名稱前綴 - 儲存按鈕
         let saveFilenamePrefixBtn = document.createElement('button');
         saveFilenamePrefixBtn.setAttribute("id", "butter-knife-filename-save-filename-prefix-btn");
+        saveFilenamePrefixBtn.setAttribute("title", "儲存自訂的奶油刀存檔名稱前綴");
         saveFilenamePrefixBtn.setAttribute('type', 'button');
-        saveFilenamePrefixBtn.setAttribute('class', 'butter-knife');
-        saveFilenamePrefixBtn.textContent = '儲存自訂';
-        filenamePrefixInput.insertAdjacentElement("afterend", saveFilenamePrefixBtn);
+        saveFilenamePrefixBtn.setAttribute('class', 'butter-knife butter-knife-btn btn waves-effect waves-light');
+        configForm.appendChild(saveFilenamePrefixBtn);
+        let saveIcon = document.createElement('i');
+        saveIcon.setAttribute('class', 'material-icons butter-knife-save-icon');
+        saveIcon.textContent = 'check';
+        saveFilenamePrefixBtn.appendChild(saveIcon);
         document.getElementById("butter-knife-filename-save-filename-prefix-btn").addEventListener('click', (event) => {
             setFilenamePrefix();
         });

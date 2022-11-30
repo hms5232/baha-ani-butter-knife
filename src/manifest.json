@@ -24,7 +24,12 @@
     "content_scripts": [
         {
             "matches": ["*://ani.gamer.com.tw/*"],
-            "js": ["lib/waitForElm.js", "butterKnife.js"]
+            "js": ["lib/waitForElm.js", "butterKnife.js"],
+            "css": ["butterKnife.css"]
         }
-    ]
+    ],
+
+    "web_accessible_resources": [
+        "icons/logo-48.png"
+      ]
 }

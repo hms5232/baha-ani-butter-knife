@@ -1,0 +1,23 @@
+#butter-knife-filename-prefix-input {
+    width: 28%;
+    padding: 8px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 4px solid #fee27b;
+    border-radius: 4px;
+}
+
+#butter-knife-filename-save-filename-prefix-btn {
+    background-color: #31c1df;
+    color: #f9f9a7;
+    padding: 8px 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#butter-knife-filename-save-filename-prefix-btn:hover {
+    background-color: #f9f9a7;
+    color: #31c1df;
+}

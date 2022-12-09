@@ -40,7 +40,7 @@
         let filenamePrefixLabel = document.createElement('label');
         filenamePrefixLabel.setAttribute("for", "butter-knife-filename-prefix-input");
         filenamePrefixLabel.setAttribute("id", "butter-knife-filename-prefix-input-label");
-        filenamePrefixLabel.setAttribute("class", "butter-knife-filename-prefix-input-label");
+        filenamePrefixLabel.setAttribute("class", "butter-knife-filename-prefix-input-label butter-knife-input-label butter-knife-text");
         filenamePrefixLabel.textContent = "自訂奶油刀存檔檔名前綴"
         configForm.appendChild(filenamePrefixLabel);
         let filenamePrefixInput = document.createElement('input');

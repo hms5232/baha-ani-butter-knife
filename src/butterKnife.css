@@ -21,3 +21,8 @@
     background-color: #f9f9a7;
     color: #31c1df;
 }
+
+.butter-knife-input-label {
+    /* 跟著巴哈黑暗模式改變文字顏色 */
+    color: var(--text-default-color);
+}

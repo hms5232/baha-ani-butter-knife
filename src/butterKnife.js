@@ -4,7 +4,7 @@
     let filenamePrefix = animeTitle.replace(/ \[[^}]*\]/,'') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
 
     /**
-     * 初始化：加入按鈕和快捷鍵
+     * 初始化之一：加入相簿和設定區塊
      *
      * @return void
      */
@@ -66,6 +66,15 @@
             setFilenamePrefix();
         });
 
+        consolog("init OK.");
+    }
+
+    /**
+     * 初始化之二：加入按鈕和快捷鍵並監聽
+     *
+     * @return void
+     */
+     function initTrigger() {
         // 鍵盤快捷鍵
         document.addEventListener('keydown', (event) => {
             // 119 => F8
@@ -122,6 +131,8 @@
         } catch (error) {
             consolog("無法注入控制器圖示" + '\n' + error, 'warn');
         }
+
+        consolog("trigger ready.");
     }
 
     /**
@@ -197,9 +208,12 @@
     // 等解析度按鈕出現，代表開始播放正片
     waitForElm('#resButton').then((elm) => {
         consolog('resButton is ready');
-        // 此時開始初始化
-        init();
+        // 設定觸發
+        initTrigger();
     });
+
+    // 播放開始前就可以先把相簿區和一些介面做出來
+    init();
 
     consolog('butterKnife loaded.')
 })();

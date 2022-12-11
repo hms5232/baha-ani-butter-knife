@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "巴哈動畫瘋奶油刀",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "author": "hms5232",
 
     "description": "A screenshot tool for ani.gamer.com.tw",
@@ -31,5 +31,5 @@
 
     "web_accessible_resources": [
         "icons/logo-48.png"
-      ]
+    ]
 }

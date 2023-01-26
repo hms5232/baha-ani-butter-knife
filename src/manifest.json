@@ -12,6 +12,12 @@
         "96": "icons/logo-96.png"
     },
 
+    "applications": {
+        "gecko": {
+            "strict_min_version": "90.0"
+        }
+    },
+
     "permissions": [
         "activeTab"
     ],

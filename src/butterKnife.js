@@ -174,7 +174,7 @@
 
         // 套上連結，點擊即可下載
         let canvaDL = document.createElement("a");
-        canvaDL.id = "butter-knife-shot";
+        canvaDL.className = "butter-knife-shot-a";
         canvaDL.download = filename;
         canvaDL.title = filename;
         canvaDL.href = canva.toDataURL();
@@ -190,8 +190,16 @@
      * @return void
      */
     function setFilenamePrefix() {
+        let previousFilenamePrefix = filenamePrefix;  // 更改前的檔名前綴
         filenamePrefix = document.getElementById("butter-knife-filename-prefix-input").value;
         consolog("存檔名稱（未加時間戳）更新為：" + filenamePrefix);
+        // 也修改已經在相簿區的截圖們的屬性
+        let existScreenshots = document.getElementsByClassName("butter-knife-shot-a");
+        Array.from(existScreenshots).forEach(screenshot => {
+            screenshot.title = screenshot.title.replace(previousFilenamePrefix, filenamePrefix);
+            screenshot.download = screenshot.download.replace(previousFilenamePrefix, filenamePrefix);
+        });
+        consolog("相簿區已存在截圖之檔名前綴亦更新完成。");
     }
 
     /**

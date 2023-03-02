@@ -18,7 +18,7 @@
         album.setAttribute('id', 'butter-knife-album');
         album.setAttribute('class', 'butter-knife');
         album.setAttribute('style', 'margin-bottom:10px');
-        document.getElementsByClassName('data_acgbox')[0].insertAdjacentElement('beforebegin', album);  // 插在「作品簡介」區前
+        document.getElementsByClassName('data')[0].insertAdjacentElement('beforebegin', album);  // 插在「作品簡介」區前
 
         // 自訂存檔名稱前綴 - 表單 - 在相簿區之前
         let configForm = document.createElement('form');

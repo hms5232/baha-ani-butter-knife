@@ -66,6 +66,19 @@
             setFilenamePrefix();
         });
 
+        consolog("區域初始化完成");
+
+        // 離開頁面時觸發
+        addEventListener("beforeunload", (event) => {
+            consolog("★before unload★");
+            // 如果相簿區有截圖存在，就跳出訊息確認
+            if (document.getElementsByClassName("butter-knife-shot-a").length > 0) {
+                event.preventDefault();
+                return "【奶油刀】離開頁面將會清除現存頁面上暫存的截圖，請確定已經儲存想要保留的截圖";
+            }
+        });
+        consolog("開始監聽 beforeunload");
+
         consolog("init OK.");
     }
 

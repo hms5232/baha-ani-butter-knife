@@ -100,7 +100,7 @@
             let resolutionBtn = document.getElementById("resButton");  // 右邊調整解析度的按鈕
             let newBtn = document.createElement('button');
             newBtn.setAttribute("id", "butter-knife-btn");
-            newBtn.setAttribute("title", "奶油刀截圖");
+            newBtn.setAttribute("title", "奶油刀截圖 (F8)");
             newBtn.setAttribute('type', 'button');
             newBtn.setAttribute('class', 'butter-knife vjs-control vjs-show-tip');
             resolutionBtn.insertAdjacentElement("afterend", newBtn);

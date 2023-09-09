@@ -8,7 +8,7 @@
 
 [巴哈動畫瘋](https://ani.gamer.com.tw/)截圖附加元件
 
-[![get-the-addon-172x60.png](https://ffp4g1ylyit3jdyti1hqcvtb-wpengine.netdna-ssl.com/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/zh-TW/firefox/addon/baha-ani-butter-knife/)
+[![get-the-addon-172x60.png](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/zh-TW/firefox/addon/baha-ani-butter-knife/)
 
 ## 最低需求
 * Firefox 90 或更新的版本

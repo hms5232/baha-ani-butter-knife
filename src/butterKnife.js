@@ -97,7 +97,7 @@
 
         // 插入按鈕
         try {
-            let resolutionBtn = document.getElementById("resButton");  // 右邊調整解析度的按鈕
+            let resolutionBtn = document.getElementsByClassName("vjs-res-button")[0];  // 右邊調整解析度的按鈕
             let newBtn = document.createElement('button');
             newBtn.setAttribute("id", "butter-knife-btn");
             newBtn.setAttribute("title", "奶油刀截圖 (F8)");
@@ -227,8 +227,8 @@
     }
 
     // 等解析度按鈕出現，代表開始播放正片
-    waitForElm('#resButton').then((elm) => {
-        consolog('resButton is ready');
+    waitForElm('.vjs-res-button').then((elm) => {
+        consolog('class vjs-res-button (origin: id resButton) is ready');
         // 設定觸發
         initTrigger();
     });

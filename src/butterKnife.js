@@ -1,7 +1,16 @@
 (() => {
 
-    const animeTitle = document.getElementsByTagName("h1")[0].textContent;  // 網頁上原始動畫標題
-    let filenamePrefix = animeTitle.replace(/ \[[^}]*\]/,'') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
+    let filenamePrefix = getDefaultFilenamePrefix();
+
+    /**
+     * Returns a filename prefix based on the anime title and episode information (the default value).
+     *
+     * @return {string} The filename prefix, consisting of the anime title and episode information.
+     */
+    function getDefaultFilenamePrefix() {
+        let animeTitle = document.getElementsByTagName("h1")[0].textContent;  // 網頁上原始動畫標題
+        return animeTitle.replace(/ \[[^}]*\]/,'') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
+    }
 
     /**
      * 初始化之一：加入相簿和設定區塊
@@ -78,6 +87,18 @@
             }
         });
         consolog("開始監聽 beforeunload");
+
+        // 監聽 title，變更時重設前綴
+        new MutationObserver(() => {
+            consolog("title changed.");
+            // 重設前綴也別忘記更新輸入框的值
+            filenamePrefix = getDefaultFilenamePrefix();
+            document.getElementById("butter-knife-filename-prefix-input").value = filenamePrefix;
+            consolog("截圖檔名前綴因為集數變動，之後新增的截圖檔名前綴更新為：" + filenamePrefix);
+        }).observe(
+            document.querySelector('title'),
+            { subtree: true, characterData: true, childList: true }
+        );
 
         consolog("init OK.");
     }
@@ -200,33 +221,19 @@
     /**
      * 設定截圖存檔檔名前綴
      *
-     * @param boolean changeExists 是否改變已存在的截圖檔案名稱
      * @return void
      */
-    function setFilenamePrefix(changeExists = true) {
+    function setFilenamePrefix() {
         let previousFilenamePrefix = filenamePrefix;  // 更改前的檔名前綴
         filenamePrefix = document.getElementById("butter-knife-filename-prefix-input").value;
         consolog("存檔名稱（未加時間戳）更新為：" + filenamePrefix);
-        if (changeExists) {
-            consolog("需要更改已存在的截圖檔案名稱，原本為：" + previousFilenamePrefix + "。");
-            changeExistScreenshotsFilename(previousFilenamePrefix);
-        }
-    }
-
-    /**
-     * 修改已經存在的截圖檔案名稱
-     *
-     * @param string prefixToBeChanged 要更改的檔名前綴
-     * @returns void
-     */
-    function changeExistScreenshotsFilename(prefixToBeChanged) {
         // 也修改已經在相簿區的截圖們的屬性
         let existScreenshots = document.getElementsByClassName("butter-knife-shot-a");
         Array.from(existScreenshots).forEach(screenshot => {
-            screenshot.title = screenshot.title.replace(prefixToBeChanged, filenamePrefix);
-            screenshot.download = screenshot.download.replace(prefixToBeChanged, filenamePrefix);
+            screenshot.title = screenshot.title.replace(previousFilenamePrefix, filenamePrefix);
+            screenshot.download = screenshot.download.replace(previousFilenamePrefix, filenamePrefix);
         });
-        consolog("相簿區已存在截圖之檔名前綴更新完成。");
+        consolog("相簿區已存在截圖之檔名前綴亦更新完成。");
     }
 
     /**

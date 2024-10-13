@@ -111,8 +111,7 @@
      function initTrigger() {
         // 鍵盤快捷鍵
         document.addEventListener('keydown', (event) => {
-            // 119 => F8
-            if (event.keyCode !== 119) return;
+            if (event.key !== 'F8') return;
             getVideoShot();
         });
 

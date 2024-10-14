@@ -26,3 +26,9 @@
     /* 跟著巴哈黑暗模式改變文字顏色 */
     color: var(--text-default-color);
 }
+
+/* 當奶油刀按鈕被按下時的樣式
+（放開時游標能在按鈕上才會觸發截圖，此樣式只是作為視覺提示奶油刀準備好了） */
+#butter-knife-btn:active > #a > g > path {
+    fill: hsl(152, 87%, 82%);
+}

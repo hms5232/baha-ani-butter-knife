@@ -3,6 +3,6 @@
  * https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/
  */
 
- module.exports = {
+ export default {
     sourceDir: 'src',
 };

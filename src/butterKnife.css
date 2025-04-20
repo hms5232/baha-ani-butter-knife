@@ -32,3 +32,8 @@
 #butter-knife-btn:active > #a > g > path {
     fill: hsl(152, 87%, 82%);
 }
+
+/* 當自訂存檔名稱前綴未儲存時，輸入框的樣式 */
+.butter-knife-filename-prefix-input-unsaved-highlight {
+    background-color: hsl(287, 72%, 90%);
+}

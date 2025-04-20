@@ -60,6 +60,12 @@
         filenamePrefixInput.setAttribute("placeholder", filenamePrefix);
         filenamePrefixInput.setAttribute("value", filenamePrefix);
         configForm.appendChild(filenamePrefixInput);
+        filenamePrefixInput.addEventListener('input', (event) => {
+            // 如果目前的設定和輸入框不同，要有醒目提示
+            filenamePrefix !== event.target.value
+                ? filenamePrefixInput.classList.add("butter-knife-filename-prefix-input-unsaved-highlight")
+                : filenamePrefixInput.classList.remove("butter-knife-filename-prefix-input-unsaved-highlight");
+        });
         // 自訂存檔名稱前綴 - 儲存按鈕
         let saveFilenamePrefixBtn = document.createElement('button');
         saveFilenamePrefixBtn.setAttribute("id", "butter-knife-filename-save-filename-prefix-btn");
@@ -224,8 +230,10 @@
      */
     function setFilenamePrefix() {
         let previousFilenamePrefix = filenamePrefix;  // 更改前的檔名前綴
-        filenamePrefix = document.getElementById("butter-knife-filename-prefix-input").value;
+        let filenamePrefixInput = document.getElementById("butter-knife-filename-prefix-input");
+        filenamePrefix = filenamePrefixInput.value; // 更新檔名前綴
         consolog("存檔名稱（未加時間戳）更新為：" + filenamePrefix);
+        filenamePrefixInput.classList.remove("butter-knife-filename-prefix-input-unsaved-highlight"); // 移除未儲存醒目提示
         // 也修改已經在相簿區的截圖們的屬性
         let existScreenshots = document.getElementsByClassName("butter-knife-shot-a");
         Array.from(existScreenshots).forEach(screenshot => {

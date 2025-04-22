@@ -37,6 +37,7 @@
     ],
 
     "web_accessible_resources": [
-        "icons/logo-48.png"
+        "icons/logo-48.png",
+        "icons/control-bar-btn.svg"
     ]
 }

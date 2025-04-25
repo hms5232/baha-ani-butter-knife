@@ -1,3 +1,13 @@
+/* 相簿區 */
+#butter-knife-album {
+    margin-bottom: 10px; /* 讓相簿區和動畫資訊區有一小塊空間隔開 */
+}
+
+/* 自訂存檔名稱前綴 - 表單 - 在相簿區之前 */
+#butter-knife-config-form {
+    margin-bottom: 10px;  /* 讓相簿區和自訂前綴區塊之間有一小塊空間隔開 */
+}
+
 #butter-knife-filename-prefix-input {
     width: 28%;
     padding: 8px 10px;

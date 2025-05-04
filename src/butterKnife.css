@@ -1,3 +1,13 @@
+:root {
+    --butter-knife-filename-prefix-input-unsaved-background-color: hsl(287, 72%, 90%); /* 當自訂存檔名稱前綴未儲存時，輸入框的背景顏色 */
+}
+
+/* 跟著巴哈黑暗模式改變 */
+html[data-theme="dark"] {
+    --butter-knife-filename-prefix-input-unsaved-background-color: hwb(259.1 65.1% 1.6%);
+}
+
+
 /* 相簿區 */
 #butter-knife-album {
     margin-bottom: 10px; /* 讓相簿區和動畫資訊區有一小塊空間隔開 */
@@ -45,5 +55,5 @@
 
 /* 當自訂存檔名稱前綴未儲存時，輸入框的樣式 */
 .butter-knife-filename-prefix-input-unsaved-highlight {
-    background-color: hsl(287, 72%, 90%);
+    background-color: var(--butter-knife-filename-prefix-input-unsaved-background-color);
 }

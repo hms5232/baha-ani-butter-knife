@@ -9,7 +9,7 @@
      */
     function getDefaultFilenamePrefix() {
         let animeTitle = document.getElementsByTagName("h1")[0].textContent;  // 網頁上原始動畫標題
-        return animeTitle.replace(/ \[[^}]*\]/,'') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
+        return animeTitle.replace(/ \[[^}]*\]/,'').replaceAll('.', '') + getEpisode(animeTitle);  // 截圖檔名前半（動畫名稱+話數資訊）
     }
 
     /**
@@ -199,7 +199,7 @@
     function setFilenamePrefix() {
         let previousFilenamePrefix = filenamePrefix;  // 更改前的檔名前綴
         let filenamePrefixInput = document.getElementById("butter-knife-filename-prefix-input");
-        filenamePrefix = filenamePrefixInput.value; // 更新檔名前綴
+        filenamePrefix = filenamePrefixInput.value.replaceAll('.', ''); // 更新檔名前綴
         consolog("存檔名稱（未加時間戳）更新為：" + filenamePrefix);
         filenamePrefixInput.classList.remove("butter-knife-filename-prefix-input-unsaved-highlight"); // 移除未儲存醒目提示
         // 也修改已經在相簿區的截圖們的屬性

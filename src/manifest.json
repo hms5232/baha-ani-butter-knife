@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "巴哈動畫瘋奶油刀",
     "version": "1.4.2",
     "author": "hms5232",
@@ -12,10 +12,10 @@
         "96": "icons/logo-96.png"
     },
 
-    "applications": {
+    "browser_specific_settings": {
         "gecko": {
             "id": "{6d077b82-66b2-423d-bfa8-201edb46443c}",
-            "strict_min_version": "90.0"
+            "strict_min_version": "109.0"
         }
     },
 
@@ -23,8 +23,11 @@
         "activeTab"
     ],
 
-    "browser_action": {
-        "default_icon": "icons/logo-96.png",
+    "action": {
+        "default_icon": {
+            "48": "icons/logo-48.png",
+            "96": "icons/logo-96.png"
+        },
         "default_title": "Butter knife"
     },
 
@@ -36,8 +39,14 @@
         }
     ],
 
-    "web_accessible_resources": [
-        "icons/logo-48.png",
-        "icons/control-bar-btn.svg"
-    ]
+    "host_permissions": [
+        "*://ani.gamer.com.tw/*"
+    ],
+    "web_accessible_resources": [{
+        "resources": [
+            "icons/logo-48.png",
+            "icons/control-bar-btn.svg"
+        ],
+        "matches": ["*://ani.gamer.com.tw/*"]
+    }]
 }

@@ -11,7 +11,7 @@
 [![get-the-addon-172x60.png](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/zh-TW/firefox/addon/baha-ani-butter-knife/)
 
 ## 最低需求
-* Firefox 90 或更新的版本
+從 1.5.0 版開始，奶油刀更新成 Manifest V3，最低需求為 Firefox 127 或更新的版本；如果不願意使用 Manifest V3 或是 Firefox 版本過舊，請使用 1.4.2 或更早的奶油刀，仍支援 Firefox 90 或更新的版本（直至 Mozilla 移除 Manifest V2 支援）。
 
 ## 使用
 安裝後，當進入動畫瘋時，附加元件就會自動注入網站中，並在動畫就緒開始播放後：

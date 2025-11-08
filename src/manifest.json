@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "巴哈動畫瘋奶油刀",
-    "version": "1.4.2",
+    "version": "1.5.0",
     "author": "hms5232",
 
     "description": "A screenshot tool for ani.gamer.com.tw",
@@ -15,7 +15,7 @@
     "browser_specific_settings": {
         "gecko": {
             "id": "{6d077b82-66b2-423d-bfa8-201edb46443c}",
-            "strict_min_version": "109.0"
+            "strict_min_version": "127.0"
         }
     },
 

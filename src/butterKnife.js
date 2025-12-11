@@ -113,12 +113,6 @@
      * @return void
      */
      function initTrigger() {
-        // 鍵盤快捷鍵
-        document.addEventListener('keydown', (event) => {
-            if (event.key !== 'F8') return;
-            getVideoShot();
-        });
-
         // 插入按鈕
         try {
             let resolutionBtn = document.getElementsByClassName("vjs-res-button")[0];  // 右邊調整解析度的按鈕
@@ -138,6 +132,19 @@
         } catch (error) {
             consolog("無法注入控制器圖示" + '\n' + error, 'warn');
         }
+
+        const btn = document.getElementById('butter-knife-btn');
+
+        // 鍵盤快捷鍵
+        document.addEventListener('keydown', (event) => {
+            if (event.key !== 'F8') return;
+            btn.classList.add('butter-knife-keyboard-trigger-pressed'); // 奶油刀圖示變色
+            getVideoShot();
+        });
+        document.addEventListener('keyup', (event) => {
+            if (event.key !== 'F8') return;
+            btn.classList.remove('butter-knife-keyboard-trigger-pressed'); // 奶油刀圖示恢復
+        });
 
         consolog("trigger ready.");
     }

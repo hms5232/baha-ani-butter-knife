@@ -52,7 +52,7 @@ html[data-theme="dark"] {
 #butter-knife-btn:active > #a > g > path {
     fill: hsl(152, 87%, 82%);
 }
-/* 鍵盤截圖快捷建按下時的效果
+/* 鍵盤截圖快捷鍵按下時的效果
    和滑鼠點擊圖示按鈕不同顏色，以利區分 */
 #butter-knife-btn.butter-knife-keyboard-trigger-pressed > #a > g > path {
     fill: #FF7F50;

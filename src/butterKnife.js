@@ -23,40 +23,46 @@
         consolog("預設存檔名稱（未加時間戳）為：" + filenamePrefix);
 
         // 製作相簿區
-        let album = document.createElement('div');
-        album.setAttribute('id', 'butter-knife-album');
-        album.setAttribute('class', 'butter-knife');
+        let album = createEl('div', {
+            id: 'butter-knife-album',
+            class: 'butter-knife',
+        });
         document.getElementsByClassName('data')[0].insertAdjacentElement('beforebegin', album);  // 插在「作品簡介」區前
 
         // 自訂存檔名稱前綴 - 表單 - 在相簿區之前
-        let configForm = document.createElement('form');
-        configForm.setAttribute('id', 'butter-knife-config-form');
-        configForm.setAttribute('class', 'butter-knife input-field');
+        let configForm = createEl('form', {
+            id: 'butter-knife-config-form',
+            class: 'butter-knife input-field',
+        });
         document.getElementById('butter-knife-album').insertAdjacentElement('beforebegin', configForm);
 
         // 奶油刀 icon 48 - 在自訂存檔名稱前綴表單之前
-        let icon = document.createElement('img');
-        icon.setAttribute('id', 'butter-knife-icon-48');
-        icon.setAttribute('title', '奶油刀圖示');
-        icon.setAttribute('class', 'butter-knife');
-        icon.setAttribute('src', browser.runtime.getURL('icons/logo-48.png'));
-        icon.setAttribute('height', browser.runtime.getURL('icons/logo-48.png'));
+        let icon = createEl('img', {
+            id: 'butter-knife-icon-48',
+            title: '奶油刀圖示',
+            class: 'butter-knife',
+            src: browser.runtime.getURL('icons/logo-48.png'),
+            height: browser.runtime.getURL('icons/logo-48.png'),
+        });
         document.getElementById('butter-knife-config-form').insertAdjacentElement('beforebegin', icon);
 
         // 自訂存檔名稱前綴 - 輸入
-        let filenamePrefixLabel = document.createElement('label');
-        filenamePrefixLabel.setAttribute("for", "butter-knife-filename-prefix-input");
-        filenamePrefixLabel.setAttribute("id", "butter-knife-filename-prefix-input-label");
-        filenamePrefixLabel.setAttribute("class", "butter-knife-filename-prefix-input-label butter-knife-input-label butter-knife-text");
-        filenamePrefixLabel.textContent = "自訂奶油刀存檔檔名前綴"
+        let filenamePrefixLabel = createEl('label', {
+            for: 'butter-knife-filename-prefix-input',
+            id: 'butter-knife-filename-prefix-input-label',
+            class: 'butter-knife-filename-prefix-input-label butter-knife-input-label butter-knife-text',
+        }, {
+            textContent: "自訂奶油刀存檔檔名前綴",
+        });
         configForm.appendChild(filenamePrefixLabel);
-        let filenamePrefixInput = document.createElement('input');
-        filenamePrefixInput.setAttribute("id", "butter-knife-filename-prefix-input");
-        filenamePrefixInput.setAttribute("title", "自訂奶油刀存檔檔名前綴");
-        filenamePrefixInput.setAttribute('type', 'text');
-        filenamePrefixInput.setAttribute('class', 'butter-knife butter-knife-input');
-        filenamePrefixInput.setAttribute("placeholder", filenamePrefix);
-        filenamePrefixInput.setAttribute("value", filenamePrefix);
+        let filenamePrefixInput = createEl('input', {
+            id: 'butter-knife-filename-prefix-input',
+            title: '自訂奶油刀存檔檔名前綴',
+            type: 'text',
+            class: 'butter-knife butter-knife-input',
+            placeholder: filenamePrefix,
+            value: filenamePrefix,
+        });
         configForm.appendChild(filenamePrefixInput);
         filenamePrefixInput.addEventListener('input', (event) => {
             // 如果目前的設定和輸入框不同，要有醒目提示
@@ -65,15 +71,18 @@
                 : filenamePrefixInput.classList.remove("butter-knife-filename-prefix-input-unsaved-highlight");
         });
         // 自訂存檔名稱前綴 - 儲存按鈕
-        let saveFilenamePrefixBtn = document.createElement('button');
-        saveFilenamePrefixBtn.setAttribute("id", "butter-knife-filename-save-filename-prefix-btn");
-        saveFilenamePrefixBtn.setAttribute("title", "儲存自訂的奶油刀存檔名稱前綴");
-        saveFilenamePrefixBtn.setAttribute('type', 'button');
-        saveFilenamePrefixBtn.setAttribute('class', 'butter-knife butter-knife-btn btn waves-effect waves-light');
+        let saveFilenamePrefixBtn = createEl('button', {
+            id: 'butter-knife-filename-save-filename-prefix-btn',
+            title: '儲存自訂的奶油刀存檔名稱前綴',
+            type: 'button',
+            class: 'butter-knife butter-knife-btn btn waves-effect waves-light',
+        });
         configForm.appendChild(saveFilenamePrefixBtn);
-        let saveIcon = document.createElement('i');
-        saveIcon.setAttribute('class', 'material-icons butter-knife-save-icon');
-        saveIcon.textContent = 'check';
+        let saveIcon = createEl('i', {
+            class: 'material-icons butter-knife-save-icon',
+        }, {
+            textContent: 'check',
+        });
         saveFilenamePrefixBtn.appendChild(saveIcon);
         document.getElementById("butter-knife-filename-save-filename-prefix-btn").addEventListener('click', (event) => {
             setFilenamePrefix();
@@ -116,11 +125,12 @@
         // 插入按鈕
         try {
             let resolutionBtn = document.getElementsByClassName("vjs-res-button")[0];  // 右邊調整解析度的按鈕
-            let newBtn = document.createElement('button');
-            newBtn.setAttribute("id", "butter-knife-btn");
-            newBtn.setAttribute("title", "奶油刀截圖 (F8)");
-            newBtn.setAttribute('type', 'button');
-            newBtn.setAttribute('class', 'butter-knife vjs-control vjs-show-tip');
+            let newBtn = createEl('button', {
+                id: 'butter-knife-btn',
+                title: '奶油刀截圖 (F8)',
+                type: 'button',
+                class: 'butter-knife vjs-control vjs-show-tip',
+            });
             resolutionBtn.insertAdjacentElement("afterend", newBtn);
             const reqControlBarBtn = new XMLHttpRequest();
             reqControlBarBtn.open("GET", browser.runtime.getURL("icons/control-bar-btn.svg"), false);
@@ -178,21 +188,24 @@
         consolog('截圖：' + filename);
 
         // 繪製
-        let canva = document.createElement("canvas");
-        canva.setAttribute("id", "butter-knife-shot-" + Date.now());  // 取當下時間戳作唯一值
-        canva.setAttribute("class", "butter-knife-shot");
-        canva.setAttribute("width", video.videoWidth);
-        canva.setAttribute("height", video.videoHeight);
+        let canva = createEl("canvas", {
+            id: "butter-knife-shot-" + Date.now(),  // 取當下時間戳作唯一值
+            class: "butter-knife-shot",
+            width: video.videoWidth,
+            height: video.videoHeight,
+        });
         let shot = canva.getContext('2d');
         shot.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
 
         // 套上連結，點擊即可下載
-        let canvaDL = document.createElement("a");
-        canvaDL.className = "butter-knife-shot-a";
-        canvaDL.download = filename;
-        canvaDL.title = filename;
-        canvaDL.href = canva.toDataURL();
-        canvaDL.innerHTML = `<img src="${canva.toDataURL()}">`;
+        let canvaDL = createEl("a", {
+            class: "butter-knife-shot-a",
+            download: filename,
+            title: filename,
+            href: canva.toDataURL(),
+        }, {
+            innerHTML: `<img src="${canva.toDataURL()}">`,
+        });
 
         // 放到相簿
         document.getElementById("butter-knife-album").appendChild(canvaDL);
@@ -227,6 +240,25 @@
      */
     function consolog(content, level = 'log') {
         console[level]("[奶油刀] " + content);
+    }
+
+    /**
+     * 建立元素並設定屬性
+     *
+     * @param string tag 元素標籤
+     * @param Object attributes HTML 屬性物件
+     * @param Object properties DOM 屬性物件
+     * @returns HTMLElement 建立的元素
+     */
+    function createEl(tag, attributes, properties = {}) {
+        const element = document.createElement(tag);
+        Object.entries(attributes).forEach(([key, value]) => {
+            element.setAttribute(key, value);
+        });
+        Object.entries(properties).forEach(([key, value]) => {
+            element[key] = value;
+        });
+        return element;
     }
 
     // 等解析度按鈕出現，代表開始播放正片

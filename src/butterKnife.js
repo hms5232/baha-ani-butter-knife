@@ -42,7 +42,6 @@
             title: '奶油刀圖示',
             class: 'butter-knife',
             src: browser.runtime.getURL('icons/logo-48.png'),
-            height: browser.runtime.getURL('icons/logo-48.png'),
         });
         document.getElementById('butter-knife-config-form').insertAdjacentElement('beforebegin', icon);
 

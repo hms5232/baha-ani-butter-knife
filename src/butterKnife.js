@@ -18,7 +18,7 @@
      * @return void
      */
     function init() {
-        consolog('init');
+        consolog('init', 'debug');
 
         consolog("預設存檔名稱（未加時間戳）為：" + filenamePrefix);
 
@@ -87,22 +87,22 @@
             setFilenamePrefix();
         });
 
-        consolog("區域初始化完成");
+        consolog("區域初始化完成", "debug");
 
         // 離開頁面時觸發
         addEventListener("beforeunload", (event) => {
-            consolog("★before unload★");
+            consolog("★before unload★", "debug");
             // 如果相簿區有截圖存在，就跳出訊息確認
             if (document.getElementsByClassName("butter-knife-shot-a").length > 0) {
                 event.preventDefault();
                 return "【奶油刀】離開頁面將會清除現存頁面上暫存的截圖，請確定已經儲存想要保留的截圖";
             }
         });
-        consolog("開始監聽 beforeunload");
+        consolog("開始監聽 beforeunload", "debug");
 
         // 監聽 title，變更時重設前綴
         new MutationObserver(() => {
-            consolog("title changed.");
+            consolog("title changed.", "debug");
             // 重設前綴也別忘記更新輸入框的值
             filenamePrefix = getDefaultFilenamePrefix();
             document.getElementById("butter-knife-filename-prefix-input").value = filenamePrefix;
@@ -112,7 +112,7 @@
             { subtree: true, characterData: true, childList: true }
         );
 
-        consolog("init OK.");
+        consolog("init OK.", "debug");
     }
 
     /**
@@ -155,7 +155,7 @@
             btn.classList.remove('butter-knife-keyboard-trigger-pressed'); // 奶油刀圖示恢復
         });
 
-        consolog("trigger ready.");
+        consolog("trigger ready.", "debug");
     }
 
     /**
@@ -227,7 +227,7 @@
             screenshot.title = screenshot.title.replace(previousFilenamePrefix, filenamePrefix);
             screenshot.download = screenshot.download.replace(previousFilenamePrefix, filenamePrefix);
         });
-        consolog("相簿區已存在截圖之檔名前綴亦更新完成。");
+        consolog("相簿區已存在截圖之檔名前綴亦更新完成。", "debug");
     }
 
     /**
@@ -262,7 +262,7 @@
 
     // 等解析度按鈕出現，代表開始播放正片
     waitForElm('.vjs-res-button').then((elm) => {
-        consolog('class vjs-res-button (origin: id resButton) is ready');
+        consolog('class vjs-res-button (origin: id resButton) is ready', 'debug');
         // 設定觸發
         initTrigger();
     });

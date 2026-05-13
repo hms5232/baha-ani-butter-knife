@@ -103,6 +103,10 @@
         // 監聽 title，變更時重設前綴
         new MutationObserver(() => {
             consolog("title changed.", "debug");
+            // 如果目前預設前綴和輸入框的值相同，表示沒有變動可跳過
+            if (getDefaultFilenamePrefix() === document.getElementById("butter-knife-filename-prefix-input").value) {
+                return;
+            }
             // 重設前綴也別忘記更新輸入框的值
             filenamePrefix = getDefaultFilenamePrefix();
             document.getElementById("butter-knife-filename-prefix-input").value = filenamePrefix;

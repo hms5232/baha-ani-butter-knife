@@ -59,6 +59,11 @@ html[data-theme="dark"] {
     fill: #FF7F50;
 }
 
+/* 奶油刀按鈕在滑鼠游標指向時 */
+#butter-knife-btn:hover path {
+    fill: #88d4f6;
+}
+
 /* 當自訂存檔名稱前綴未儲存時，輸入框的樣式 */
 .butter-knife-filename-prefix-input-unsaved-highlight {
     background-color: var(--butter-knife-filename-prefix-input-unsaved-background-color);

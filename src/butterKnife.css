@@ -68,3 +68,39 @@ html[data-theme="dark"] {
 .butter-knife-filename-prefix-input-unsaved-highlight {
     background-color: var(--butter-knife-filename-prefix-input-unsaved-background-color);
 }
+
+/* 截圖移除按鈕樣式 */
+.butter-knife-remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 10;
+}
+
+.butter-knife-remove-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+
+.butter-knife-remove-btn:hover {
+    background-color: rgba(255, 0, 0, 1);
+    transform: scale(1.1);
+}
+
+/* 截圖們 */
+.butter-knife-shot-a {
+    margin: 2px;
+    /* 截圖容器相對定位，讓移除按鈕可以絕對定位 */
+    position: relative;
+    display: inline-block;
+}

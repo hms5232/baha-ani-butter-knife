@@ -210,6 +210,24 @@
             innerHTML: `<img src="${canva.toDataURL()}">`,
         });
 
+        // 新增移除按鈕
+        let removeBtn = createEl('button', {
+            type: 'button',
+            class: 'butter-knife-remove-btn',
+            title: '移除此截圖',
+        });
+        const reqCloseIcon = new XMLHttpRequest();
+        reqCloseIcon.open("GET", browser.runtime.getURL("icons/delete.svg"), false);
+        reqCloseIcon.send();
+        removeBtn.innerHTML = reqCloseIcon.responseText;
+        canvaDL.appendChild(removeBtn);
+        removeBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            canvaDL.remove();
+            consolog('移除截圖：' + filename);
+        });
+
         // 放到相簿
         document.getElementById("butter-knife-album").appendChild(canvaDL);
     }

@@ -48,7 +48,8 @@
     "web_accessible_resources": [{
         "resources": [
             "icons/logo-48.png",
-            "icons/control-bar-btn.svg"
+            "icons/control-bar-btn.svg",
+            "icons/delete.svg"
         ],
         "matches": ["*://ani.gamer.com.tw/*"]
     }]

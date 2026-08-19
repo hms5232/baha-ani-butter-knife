@@ -135,10 +135,7 @@
                 class: 'butter-knife vjs-control vjs-show-tip',
             });
             resolutionBtn.insertAdjacentElement("afterend", newBtn);
-            const reqControlBarBtn = new XMLHttpRequest();
-            reqControlBarBtn.open("GET", browser.runtime.getURL("icons/control-bar-btn.svg"), false);
-            reqControlBarBtn.send();
-            document.getElementById("butter-knife-btn").innerHTML = reqControlBarBtn.responseText;
+            document.getElementById("butter-knife-btn").innerHTML = fetchResource("icons/control-bar-btn.svg");
             document.getElementById("butter-knife-btn").addEventListener('click', (event) => {
                 getVideoShot();
             });
@@ -216,10 +213,7 @@
             class: 'butter-knife-remove-btn',
             title: '移除此截圖',
         });
-        const reqCloseIcon = new XMLHttpRequest();
-        reqCloseIcon.open("GET", browser.runtime.getURL("icons/delete.svg"), false);
-        reqCloseIcon.send();
-        removeBtn.innerHTML = reqCloseIcon.responseText;
+        removeBtn.innerHTML = fetchResource("icons/delete.svg");
         canvaDL.appendChild(removeBtn);
         removeBtn.addEventListener('click', (event) => {
             event.preventDefault();
@@ -250,6 +244,19 @@
             screenshot.download = screenshot.download.replace(previousFilenamePrefix, filenamePrefix);
         });
         consolog("相簿區已存在截圖之檔名前綴亦更新完成。", "debug");
+    }
+
+    /**
+     * 請求資源檔案
+     *
+     * @param string resourcePath 資源檔案路徑（如 `icons/control-bar-btn.svg`）
+     * @return string 資源內容
+     */
+    function fetchResource(resourcePath) {
+        const req = new XMLHttpRequest();
+        req.open("GET", browser.runtime.getURL(resourcePath), false);
+        req.send();
+        return req.responseText;
     }
 
     /**
